@@ -1,0 +1,9 @@
+# Project exclude paths
+/target/
+/.idea/
+/.allure/
+/log/
+/allure-results/
+chromedriver.exe
+
+/src/main/resources/screen.png
