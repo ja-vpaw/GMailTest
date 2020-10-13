@@ -1,0 +1,1 @@
+mvn -Dlogin="логин" -Dpassword="пароль" -Dsender="Валиахметов Фарит" clean compile test

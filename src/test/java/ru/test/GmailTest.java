@@ -1,16 +1,10 @@
 package ru.test;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.WebDriverSettings;
 import ru.google.PageGmail;
 
-import java.util.List;
-
-public class Gmail extends WebDriverSettings {
+public class GmailTest extends WebDriverSettings {
     @Test
     public void  enterGmail() {
         System.out.println(this.getClass().getName());
@@ -28,13 +22,14 @@ public class Gmail extends WebDriverSettings {
 
         son(1000);
 
-        String mail = page.getEmailByName(sender);
-        //String mail = "vpaw6@ya.ru";
-
         String body = "Count letters from " + sender + " is " + count;
 
-        System.out.println("Email:" + mail);
+        String mail = page.getEmailByName(sender);
 
-        page.writeNewLetter(mail, subject, body);
+        // Если найдены письма от sender
+        if (count > 0) {
+            System.out.println("Email:" + mail);
+            page.writeNewLetter(mail, subject, body);
+        }
     }
 }

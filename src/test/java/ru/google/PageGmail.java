@@ -2,6 +2,7 @@ package ru.google;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -91,8 +92,15 @@ public class PageGmail {
 
     @Step("Получение email по имени отправителя {name}")
     public String getEmailByName(String name) {
-        return driver.findElement(By.xpath("//*[@role='row']//div[@class='afn']//span[@name='"+ name +"']"))
+        String email = null;
+        try {
+            email = driver.findElement(By.xpath("//*[@role='row']//div[@class='afn']//span[@name='" + name + "']"))
                     .getAttribute("email");
+        } catch (NoSuchElementException e) {
+            System.out.println("Получатель " + name + " не найден. ");
+        }
+
+        return email;
     }
 
     @Step("Логин в Gmail")
@@ -114,7 +122,8 @@ public class PageGmail {
         WebElement passwordNext = wait.until(ExpectedConditions.elementToBeClickable(By.id("passwordNext")));
         passwordNext.click();
 
-        son(20000);
+        // Время для ввода ключа с двухфакторной аутентификации
+        son(15000);
 
         driver.get("https://mail.google.com/");
     }

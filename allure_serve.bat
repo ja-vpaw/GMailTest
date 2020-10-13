@@ -1,0 +1,1 @@
+allure serve allure-results --host localhost --port 9991
