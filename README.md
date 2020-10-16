@@ -1,7 +1,7 @@
 Тестовое задание Васин
 
 Запускать можно из командной строки:
-mvn -Dlogin="логин" -Dpassword="пароль" -Dsender="Валиахметов Фарит" clean compile test
+mvn -Dlogin="логин" -Dpassword="пароль" -Dsender="farit.valiahmetov@simbirsoft.com" clean compile test
 
 Драйвер Firefox должен быть доступен в PATH
 Grid должен быть доступен по дефолтному адресу "http://localhost:4444/wd/hub"

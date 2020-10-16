@@ -1,1 +1,1 @@
-mvn -Dlogin="логин" -Dpassword="пароль" -Dsender="Валиахметов Фарит" clean compile test
+mvn -Dlogin="login" -Dpassword="password" -Dsender="farit.valiahmetov@simbirsoft.com" clean compile test
